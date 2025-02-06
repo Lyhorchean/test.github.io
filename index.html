@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Us for Jogging</title>
+    <title>Jogging & Dinner Plans</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Arial', sans-serif;
             min-height: 100vh;
@@ -20,19 +19,17 @@
             align-items: center;
             padding: 20px;
         }
-
-        .invitation-card {
+        .itinerary-card {
             background: rgba(255, 255, 255, 0.9);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
+            max-width: 600px;
             width: 100%;
             position: relative;
             overflow: hidden;
         }
-
-        .invitation-card::before {
+        .itinerary-card::before {
             content: '🏃‍♂️';
             position: absolute;
             top: 20px;
@@ -40,7 +37,6 @@
             font-size: 2em;
             opacity: 0.2;
         }
-
         h1 {
             color: #2c3e50;
             font-size: 2.5em;
@@ -51,30 +47,79 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .details {
-            margin: 20px 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            border-left: 5px solid #3498db;
+        .timeline {
+            position: relative;
+            margin: 30px 0;
         }
-
-        .info-item {
-            margin: 15px 0;
-            color: #34495e;
-            font-size: 1.1em;
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3498db;
+        }
+        .event {
+            margin: 30px 0;
+            padding-left: 60px;
+            position: relative;
+        }
+        .event::before {
+            content: '';
+            position: absolute;
+            left: 13px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3498db;
+            border: 3px solid white;
+        }
+        .event-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .event-title {
+            color: #2c3e50;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
-        .label {
-            font-weight: bold;
-            min-width: 80px;
-            color: #2980b9;
+        .event-time {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
         }
-
+        .map-link {
+            color: #3498db;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(52, 152, 219, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        .map-link:hover {
+            background: rgba(52, 152, 219, 0.2);
+            transform: translateX(5px);
+        }
+        .map-icon {
+            font-size: 1.2em;
+        }
         .note {
             margin-top: 30px;
             padding: 15px;
@@ -84,44 +129,55 @@
             font-style: italic;
             text-align: center;
         }
-
         @media (max-width: 480px) {
-            .invitation-card {
+            .itinerary-card {
                 padding: 20px;
             }
-
             h1 {
                 font-size: 2em;
             }
-
-            .info-item {
-                font-size: 1em;
+            .event {
+                padding-left: 40px;
+            }
+            .event-title {
+                font-size: 1.1em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="invitation-card">
-        <h1>Let's Go Jogging!</h1>
+    <div class="itinerary-card">
+        <h1>Evening Plans</h1>
         
-        <div class="details">
-            <div class="info-item">
-                <span class="label">When:</span>
-                <span>Tuesday, February 4th at 6:30 PM</span>
+        <div class="timeline">
+            <div class="event">
+                <div class="event-card">
+                    <div class="event-title">
+                        <span>🏃‍♂️ Jogging at វត្តព្រះបារមីវង្កតបុរី</span>
+                    </div>
+                    <div class="event-time">6:00 PM - 7:10 PM</div>
+                    <div>1-hours refreshing jog around the pagoda area</div>
+                    <a href="https://maps.app.goo.gl/cUE9BgAAUyq9xjGg9" target="_blank" class="map-link">
+                        <span class="map-icon">📍</span>View Location
+                    </a>
+                </div>
             </div>
-            
-            <div class="info-item">
-                <span class="label">Where:</span>
-                <span>វត្តព្រះបារមីវង្កតបុរី</span>
-            </div>
-            
-            <div class="info-item">
-                <span class="label">Duration:</span>
-                <span>30 minutes</span>
+
+            <div class="event">
+                <div class="event-card">
+                    <div class="event-title">
+                        <span>🍽️ Dinner at K3NEY</span>
+                    </div>
+                    <div class="event-time">7:30 PM onwards</div>
+                    <div>Post-workout dinner and socializing</div>
+                    <a href="https://maps.app.goo.gl/o84GLTidjJeR1m8m8" target="_blank" class="map-link">
+                        <span class="map-icon">📍</span>View Restaurant
+                    </a>
+                </div>
             </div>
         </div>
 
-        <p class="note">Please bring water and wear comfortable running shoes</p>
+        <p class="note">Please bring water, wear comfortable running shoes, and maybe pack a change of clothes for dinner! 💪</p>
     </div>
 </body>
 </html>
